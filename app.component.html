@@ -1,0 +1,55 @@
+
+<h1 [innerText]="title"></h1>
+<h2>Example 1</h2>
+<button [disabled]="isDisabled">I am disabled</button>
+<h2></h2>
+<button>ClickMe</button>
+<p [style.background-color]="'yellow'">some paragraph with grey background</p>
+<button [style.color]="status=='error' ? 'red': 'blue'">Button</button> 
+<h2></h2>
+<button [style.font-size.px]="'20'" >Big Button</button>
+<h2></h2>
+<button [style.color]="getColor()">Button 2</button> 
+
+ 
+<p [style.color]="getColor()" 
+   [style.font-size.px]="'20'"      
+   [style.background-color]="status=='error' ? 'blue': 'blue'">
+   paragraph with multiple styles
+</p>
+
+<h2>==============================</h2>
+<div [className]="'red'">Test 123</div>
+<div class="red">red</div>
+
+<h3>==============================</h3>
+<div [className]="cssStringVar">Test</div> 
+
+<h3>==============================</h3>
+<div [className]="getClass()">getClass</div>
+
+
+<some-element [ngStyle]="{'font-size': '20px'}">Set Font size to 20px</some-element>
+
+ 
+<ul>
+  <li>
+    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
+  </li>
+  <li>
+    <h2><a target="_blank" href="https://blog.angular.io//">Angular blog</a></h2>
+  </li>
+</ul>
+ 
+<div [ngClass]="'red size20'"> Red Text with Size 20px </div>
+
+
+<input type ="radio" name="RADIO1" (click)="changeMe(true)"> True
+<input type ="radio" name="RADIO2" (click)="changeMe(false)"> False
+
+<div *ngIf="isValid" >
+This Is valid ngIf ditectives  which is structural Directives
+</div>
