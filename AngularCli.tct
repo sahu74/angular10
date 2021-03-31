@@ -1,0 +1,148 @@
+npm install -g @angular/cli
+ng new rest-frontend
+cd rest-frontend
+ng serve
+
+1) we needd to install boot stra
+open the terminal & go to rest-frontend
+
+npm install bootstrap --save
+This will install inside node-module
+
+& also update package.json, will add an new entry
+
+
+What is Bootstrap?
+
+Bootstrap is a free front-end framework for faster and easier web development
+Bootstrap includes HTML and CSS based design templates for typography, forms, buttons, tables, navigation, modals, image carousels and many other, 
+as well as optional JavaScript plugins
+Bootstrap also gives you the ability to easily create responsive designs
+
+
+then go to index.html
+
+
+, in the header section, past it.
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+or style.css:
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+
+
+
+ng new:
+-------
+The Angular CLI makes it easy to create an application that already works, right out of the box. It already follows our best practices!
+
+ng generate:
+------------
+Generate components, routes, services and pipes with a simple command. The CLI will also create simple test shells for all of these.
+
+ng serve:
+---------
+Easily test your app locally while developing.
+
+Test, Lint:
+-----------
+Make your code really shine. Run your unit tests, your end-to-end tests, or execute the official Angular linter with the breeze of a command.
+
+ng help
+ng generate --help
+
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+
+
+angular Link tutorial:
+========================
+The best angular Cource:
+======================
+https://ultimatecourses.com/blog/angular-decorators
+------------------------------------------------------
+
+https://www.tektutorialshub.com/angular-tutorial/#introduction-to-angular
+
+https://v2.angular.io/docs/ts/latest/guide/attribute-directives.html#:~:text=Structural%20directives%E2%80%94change%20the%20DOM%20layout%20by%20adding%20and,component%20for%20the%20first%20time%20in%20the%20QuickStartguide.
+
+https://edupala.com/angular-directive-in-details/#:~:text=An%20angular%20directive%20is%20one%20of%20the%20core,the%20appearance%20or%20behavior%20of%20a%20DOM%20element.
+
+https://www.c-sharpcorner.com/article/dynamic-div-in-angular/
+
+Edureca tutorial:
+------------------
+https://www.edureka.co/blog/angular-directive/
+
+Nice Tutorial In angular & Type Script
+======================================
+https://codecraft.tv/courses/angular/es6-typescript/decorators/
+
+
+
+Project In angular:
+==================
+https://www.techiediaries.com/angular/angular-9-tutorial-and-example/
+
+
+HTML DOM:
+-----------
+https://www.freecodecamp.org/news/whats-the-document-object-model-and-why-you-should-know-how-to-use-it-1a2d0bc5429d/
+
+In angular 10, to modify the DOM:
+---------------------------------
+https://indepth.dev/posts/1336/how-to-do-dom-manipulation-properly-in-angular
+
+
+
+
+=========================================
+
+1) there is a root component which will add child components.
+
+2) Services that gets injected into the components 
+3) Directives that help to manipulate the DOM
+
+
+The Angular Components are plain javaScript classes and defined using @component Decorator.
+
+example:
+@component (
+{
+});
+This Decorator provides the component with the View to display ( known as Template) & Metadata about the class
+
+
+The component contains the data & user interaction logic that defines how the View looks and behaves. A view in Angular refers to a template (HTML).
+
+The Angular Components are plain javascript classes and defined using @component Decorator. This Decorator provides the component with the View 
+to display & Metadata about the class.
+
+The Component is responsible to provide the data to the view. The Angular does this by using data binding to get the data from the Component to the View. 
+This is done using the special HTML markup knows as the Angular Template Syntax. The Component can also get notified when the View Changes.
+
+The Angular applications will have lots of components. Each component handles a small part of UI. These components work together to produce the complete user interface of the application
+
+The Components consists of three main building blocks
+
+1) Template
+2) Class
+3) MetaData
+
+
+Data Binding in Angular:
+------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

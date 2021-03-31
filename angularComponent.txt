@@ -1,0 +1,566 @@
+Very good site for ngular & java , spring etc:
+---------------------------------------------
+https://www.datarmatics.com/angular/5-angular-10-directives/
+
+================================================================
+
+
+tsc --target ES5 --experimentalDecorators
+To enable experimental support for decorators, you must enable the experimentalDecorators compiler option either on the command line or in your tsconfig.json:
+
+tsconfig.json:
+
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "experimentalDecorators": true
+  }
+}
+
+ node_module
+ -------------
+The node_module folder contains all the dependencies needed for the application.
+
+angular.json :– 
+----------------
+This file contains the CLI default configurations for all the projects in the workspace. It include the configuration settings for building, 
+testing and serving used by the CLI.
+
+package-lock.json – this file provides version information for the packages installed
+
+src/ – this is  the directory that contains the source files for  the root-level application
+
+Application Project Files:
+---------------------------
+The application project files are placed in the in the src/ folder of the workspace. The src/ folder contains the source files for the root application. 
+Let’s now look at the content of the src/ folder
+
+app/ – this folder contains the where the application logic and data are defined. Discussed below
+
+assets/ – this folder contains assets including images used by the application
+environment/ – contains build configuration settings for a particular target environment. There is a default standard production environment
+
+index.html – this is the index page of the web application. The script and css files are added automatically.
+
+main.ts – this is the main entry point of the application. It compiles the application with the Just-In-Time(JIT) compiler and 
+bootstraps the root module(AppModule) to run in a browser.
+
+app.component.css – this is the css style for the root AppComponent. The styles here applies to the app.component.html file
+
+app.component.html – this is the html template associated with the root component (AppComponent)
+
+app.component.specs.ts – Use for unit testing of the root component
+
+app.component.ts – This a TypeScript file that defines the core logic of the AppComponent. The view associated with the AppComponent is what becomes 
+the root of the view hierarchy as you add components and services  to your application.
+
+app.module.ts – this file defines the root module of the application. The root module is called AppModule. This tell Angular how to organise your application. 
+Any new components you will be adding to your application must be defined in the app.module.ts file.
+
+app.routing.module.ts – this file contains the definitions for the navigation between components in Angular application
+
+
+
+The Angular Component:
+----------------------
+A component is what what controls a patch of the screen called a view. Simply put, a component is a part of the UI. 
+
+For instance the UI shown below can be thought of as made up of four components: header, footer, body and sidebar
+
+
+The Component is the main building block of an Angular Application.
+The component contains the data & user interaction logic that defines how the View looks and behaves. 
+
+A view in Angular refers to a template (HTML).
+
+The Angular Components are plain javascript classes and defined using @component Decorator. 
+This Decorator provides the component with the View to display & Metadata about the class.
+
+The Component is responsible to provide the data to the view. The Angular does this by using data binding to get the data from the Component to the View. 
+This is done using the special HTML markup knows as the Angular Template Syntax. 
+
+The Component can also get notified when the View Changes.The Angular applications will have lots of components. 
+
+Each component handles a small part of UI. These components work together to produce the complete user interface of the application.
+
+
+The Components consists of three main building blocks
+
+1) Template
+2) Class
+3) MetaData
+
+Metadata tells angular how to Process the class.
+
+We attach the Metadata to a class using a class decorator. When we attach @Component class decorator to the class, then it becomes Component class.
+The class decorator uses the configuration object, which provides the Angular information it needs to create the component. 
+For Example, @Component directives come with configuration options like selector, templateURL (or template), directives, etc
+
+
+Metadata:
+=========
+Metadata Provides additional information about the component to the Angular. Angular uses this information to process the class. 
+The Metadata is defined with a decorator. 
+A decorator is a function that adds metadata to class, its methods & to its properties. The Components are defined with a @component class decorator. 
+It is @component decorator, which defines the class as Component to the Angular.
+
+
+
+
+Component Metadata:
+-------------------
+In practice, an angular component is a class annotated with the @Component annotation. This class specified the component’s metadata. 
+This metadata tells Angular where to get the building blocks of the component and its view. The component and the html template describes a view.
+
+For example, open the app.component.ts file
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css'],
+  providers: []
+})
+export class AppComponent {
+  title = 'Welcome';
+}
+
+In the code above, I have added the providers section manually. The component configuration options are explained below:
+
+1) selector :– 
+	The selector tell Angular to create and insert a component based on the tag provided in the html template. 
+	For instance, <app-root></app-root> inserts the app component in the index.html page. So open the index.html page and check to see.
+
+2) templateUrl :– 
+	This is the address of html template used by the component. This is given relative to the module. The html template could also be provided inline. 
+	This template defines the host view of the component
+
+3) styleUrls :– 
+	This is the address of the stylesheet that applies to the component’s template.
+	
+4) providers:- 
+	This section is populated if there are any services used by the component.
+	
+	
+	
+Creating a Component:
+---------------------
+	Let’s create a new component. A component that would hold  a list of students. To create a component, use the command:
+
+ $> ng create component student
+	
+This command creates a component inside the app/directory. You can open and check. You’ll see that this component contains the four files discussed earlier.
+
+To use this component in the index page, just add the selector
+
+<app-student></app-student>
+
+
+@Component decorator
+A class becomes a Component when Component Decorator is used. A Decorator is always prefixed with @. The Decorator must be positioned immediately 
+before the class definition. We can also build our own decorators. The decorators are Similar to attributes in C#
+
+Important Component metadata properties:
+----------------------------------------
+
+1) Selector
+Selector specifies the simple CSS selector, where our view representing the component is placed by the Angular.
+
+2) Providers
+The Providers are the services, that our component going to use. The Services provide service to the Components or to the other Services.
+
+3) Directives
+The directives that this component going to use are listed here.
+
+
+Styles/styleUrls
+-------------------
+The CSS Styles or style sheets, that this component needs. Here we can use either external stylesheet (using styleUrls) or inline styles (using Styles). 
+The styles used here are specific to the component
+
+template/templateUrl
+-------------------
+The HTML template that defines our View. It tells Angular how to render the Component’s view. The templates can be inline (using a template) or 
+we can use an external template (using a templateUrl). The Component can have only one template. 
+You can either use inline template or external template and not both.
+
+
+
+
+Note that title inside the double curly bracket. When rendering the view, the Angular looks for title Property in our component and binds the property 
+to our view. This is called data binding.
+
+The double curly bracket syntax is known as interpolation, 
+
+
+What are Directives?
+--------------------
+Directives is a very important concept in Angular. When Angular renders a template, it transforms the DOM according to instructions specified by directives.
+In fact, we can say that directives are the building blocks of Angular applications. Components is actually a directive.
+
+
+1) What are Directives?
+-----------------------
+The Directives help us to manipulate the view.
+A directive is a class, which we create using the @Directive class decorator. It contains the metadata and logic to manipulate the DOM
+
+Directives provide a powerful addition to the Angular platform giving us the ability to define behaviours on any element without the need to write a component.
+
+Directives are functions that are executed when found in the DOM(Document Object Model) by the Angular compiler. 
+They are used to extend the functionality of the regular HTML by adding new syntax. Remember when we created the StudentComponent, 
+we said we could add it to the HTML template using the selector.
+
+<student-app></student-app>
+
+Therefore, the HTML is kind of extended by this directive
+Similarly, there are other directives as well, each with it’s own name. For example, there’s pre-defined directive like ng-repeat, *ng-if etc.
+
+A directive can be use as a class, element, attribute or comment. Let’s now look at the three kinds of directive in Angular.
+
+A directive is very much like a component, except it does not have a template. In fact, the Component class inherits from the Directive class in the framework
+ 
+
+
+
+2) Types Of Directives:
+------------------------
+We’ll look at the three type of directives:
+
+1) Component Directives:   also known as Directives with Templates
+2) Attribute Directives :  change the appearance or behavior of an element, component, or another directive.( It change text in the HTML)
+3) Structural Directives : provide DOM structure manipulation and for reshaping the HTML layout by adding or manipulating elements.
+						   This one will add or remove the element in DOM.
+
+
+
+Component Directives
+--------------------
+
+Components are special kind of directive. So instead of manipulating the DOM, it comes with its own template. However, behind the scenes, 
+components use the directive API and provide a nicer way to define them. 
+Just to add, the @Component annotation extends the @Directive annotation with template-related features.
+
+Attribute Directives:
+--------------------
+The attribute directive manipulate the DOM by changing it’s appearance and behaviour. They are like normal HTML attribute and can be applied to DOM elements.
+An example of attribute directive is the ngModel directive. This directive can be applied to an input element to create a 1-way or 2-way data binding. 
+For example, in the code below, the ngModel is used to set the value of the input as well as update the value when there is a change event.
+
+<input [(ngModel)]="student.name"
+ 
+
+Structural Directives:
+----------------------
+
+Structural directives are used to create and remove DOM elements. These directive modify the layout by adding, removing ore replacing elements. 
+They normally start with the * sign.
+Two key examples are the *ngIf and *ngFor.
+
+<li *ngFor="let student of students"></li>
+<app-student-detail *ngIf="selectedStudent"></app-student-detail>
+In the above code,
+
+the *ngFor is an iterative directive and displays a list of students
+the *ngIf displays the StudentDetail component is the selectedStudent is assigned.
+
+How to use Angular Directives:
+---------------------------------
+
+<p [ngClass]="{'red':false, 'green':true}">
+  Sure you understand Angular Directives!
+</p>
+
+<style>
+  .red{color: red}
+  .green{color: green}
+</style>
+
+
+
+In the above code snipped,  the ngClass directive adds the class of green to the paragraph since. This changes the appearance of the text and not the structure. 
+Therefore, this is an attribute directive.
+Other predefined directives in Angular include ngStyle and ngClass.
+
+Built-in directives in Angular.
+-------------------------------
+Angular has a lot of built-in directives: ngIf, ngFor, ngSwitch. These angular directives are so-called structural directives, 
+which are used to transform the DOM structure. Structural directives start with an asterisk ( * ). Angular also includes several non-structural directives 
+for use in the template like ngClass, and ngStyle these two directives manipulate the CSS classes and styles dynamically.
+
+*ngIf directive: 
+----------------
+The ngIf angular directive adds and removes elements in the DOM, based on the Boolean result of an expression.
+
+we can add these code in .html file. Then creates these variable in .ts file.
+
+<div *ngIf="number % 2 == 0; else showOdd">
+	Even number {{ number }}
+</div>
+<ng-template #showOdd>
+`Odd number {{ number }}
+</ng-template>
+
+
+
+Angular 4 has introduced a new else clause with the reference name for a template defined by ng-template . 
+
+1. The content within ng-template is shown 
+when the ngIf condition evaluates to false.
+
+2. ngSwitch Directive: 
+The ngSwitch is an angular directive for adding or removing DOM elements when they match switch expressions.
+
+
+3. ngFor Directive: 
+This angular directive is to repeat a given DOM element (or a collection of DOM elements) and pass an element of the array on each iteration.
+The syntax is *ngFor=”let item of items“
+
+<h5 *ngFor="let name of names; let i = index">
+  {{ name }} {{ i }}
+</h5>
+In typescript file of component add
+ names = ['Smith', 'Tara', 'Sonam'];
+Note: let i = index is optional, no needed in most circumstance.
+
+4. ngClass Directive: We can change the appearance of DOM elements by adding or removing classes using ngClass angular directive on based condition expression.
+
+<p *ngFor="let number of numbers" [ngClass]="{'selected': number % 2 === 0}">
+  {{ number }}
+</p>
+
+Add array number in typescript file
+ numbers = [1, 2, 3, 4, 5, 6, 7, 8];
+ 
+Add css for even
+.even { 
+	  color: white; 
+	  background-color:red; 
+}
+The argument of ngClass is an object that contains pairs of a CSS class name and an expression. The CSS class name is added to the target DOM element if the expression is true.
+
+5. ngStyle Directive: We can add a set of styles on an element using ngStyle. With the boolean conditions, we can add and removes set styles on an element by using ngStyle directive based on a boolean condition. More information and ngStyle example check on articles here.
+
+
+
+What is Databinding?
+--------------------
+Databinding in Angular is way of communicating between the DOM and the business logic. In order words, how does the data in the HTML page bind to the 
+TypeScript code.
+This is important because when you write TypeScript code, it is compiled into JavaScript and the final output is on a HTML template. 
+Therefore, when something changes in the code, users should be able to see the output immediately. This is why we need databinding.
+
+Angular uses the Data Binding to get the data from the Component to our View (Template). This is done using the special HTML Angular-specific markup known as the Template Syntax
+
+The Angular supports four types of Data binding
+
+1) Interpolation
+	Data is bind from component to View
+2) Property Binding
+	Data is bind from component to the property of an HTML control in the view like
+3) Event Binding
+	The DOM Events are bind from View to a method in the Component
+
+Two-way Binding/Model Binding
+----------------------------
+	The data flow in both directions from view to component or from component to view
+
+
+
+There are two type of databinding we’ll discuss here.
+
+ 
+1) One-way databinding.
+-----------------------
+This type of databinding is like a one-way communication. If the value in the TypeScript code changes, then the change is updated in the HTML element. 
+But not vice versa. Put in another way, we can update the view from the model but you can’t update the model from the view.
+
+The data binding in Angular can be broadly classified into two groups. One way binding or two-way binding
+
+One way binding:
+----------------
+In one way binding data flows from one direction. Either from view to component or from component to view.
+
+
+From Component to View
+To bind data from component to view, we make use of Interpolation & Property Binding.
+
+
+
+Example of one-way databinding includes:
+---------------------------------------
+
+1) Interpolation
+2) Event Binding
+3) Property Binding
+
+
+Interpolation:
+--------------
+Interpolation allows us to include expressions as part of any string literal, which we use in our HTML. The angular evaluates the expressions into a string 
+and replaces it in the original string and updates the view. You can use interpolation wherever you use a string literal in the view.
+The Angular uses the {{ }} (double curly braces) in the template to denote the interpolation.
+
+The syntax is as shown below
+
+{{ templateExpression }}
+
+The content inside the double braces is called Template Expression
+
+The Angular first evaluates the Template Expression and converts it into a string. Then it replaces Template expression with the result in the 
+original string in the HTML. Whenever the template expression changes, the Angular updates the original string again.
+
+Example:
+--------
+ 
+ Welcome,  {{firstName}} {{lastName}}
+ 
+ 
+ import { Component } from '@angular/core';
+ 
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+  firstName= 'Sachin';
+  lastName=”Tendulkar”
+}
+
+This is simply a way to display dynamic data in the HTML page.
+
+
+
+
+Property Binding […]:
+---------------------
+The Property binding allows us to bind HTML element property to a property in the component. Whenever the value of the component changes, 
+the Angular updates the element property in the View. You can set the properties such as class, href, src, textContent, etc using property binding. 
+You can also use it to set the properties of custom components or directives (properties decorated with @Input).
+
+The Property Binding uses the following Syntax
+[binding-target]=”binding-source”
+
+The binding-target (or target property) is enclosed in a square bracket []. It should match the name of the property of the enclosing element.
+
+Example
+
+app.component.html
+--------------------
+<h1 [innerText]="title"></h1>
+<h2>Example 1</h2>
+<button [disabled]="isDisabled">I am disabled</button>
+ 
+Event Binding:
+--------------
+
+This is used to bind an event for a DOM element. For example, button click event or textChanged event.  
+The example below show binding a button click event to a save() method.
+
+<h1>Example of Event Bindin</h1> 
+<button (click)="onSave()">Update</button>
+
+Two-way databinding [(…)]:
+--------------------------
+In case of two-way databinding, data is automatically synchronized between the model and the view. This is really interesting to see. 
+Any changes made in the HTML is updated in the variable in the TypeScript code and vice versa. Two-way databinding is also known as ‘banana in the box’.
+
+To achieve this, use the ngModel with an input elements like shown below:
+
+<input [(ngModel)]="firstname" > 
+
+
+Class Binding in Angular
+-------------------------
+The Angular Class binding is used to add or remove classes to and from the HTML elements. You can add CSS Classes conditionally to an element.
+The Angular provides the three ways to add/remove classes to and from the element. 
+
+1) One using the DOM ClassName Property. 
+2) The second option is to use the Class shorthand. 
+3) The third option is to use the NgClass directive.
+
+The ClassName is the property name of HTML Element. Hence we can make use of Property binding to assign the class name to any HTML element.
+
+The following example assigns CSS Class red to the div element.
+
+ 
+<div [className]="'red'">Test</div>
+
+HTML Class attribute
+You can also add class using the normal HTML way.
+
+
+<div class="red">red</div>
+
+
+
+
+what is the use of Selector in Directive?
+-----------------------------------------
+
+A selector is one of the properties of the object that we use along with the component configuration.
+A selector is used to identify each component uniquely into the component tree, and it also defines how the current component is represented in the HTML DOM.
+
+Basically, the selector property of the component is just a string that is used to identify the component or an element in the DOM.
+
+By default, the selector name may have an app as a prefix at the time of component creation, but we can update it. 
+Keep in mind that two or more component selectors must not be the same
+
+When we create a new component using Angular CLI, the newly created component looks like this.
+--------------------------------------------------
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  templateUrl: './app.component.html',
+  styleUrls: [ './app.component.css' ]
+})
+export class AppComponent  {
+  name = 'This is simple component';
+}
+---------------------------------------------------
+Here in app.component.ts, notice that we have one property called selector along with the unique name used to identify the app component 
+in the HTML DOM tree once it is rendered into the browser.
+
+The component is applied to the <my-app></my-app> tag in your index.html. If your index.html doesn't have that tag Angular will fail at startup. 
+You can control where you Angular application will be played.
+
+
+usage of the selector property of the @Directive decorator.
+
+Selectors can be declared using any of the following as per the angular documentation:
+
+element name or tag name
+[attribute] or [attribute=value]
+.class
+:not(sub_selector)
+selector1, selector2
+
+The above are essentially DOM query selectors used to target one or more HTML elements in the DOM.
+
+
+the selector is a CSS selector. The same kind of selector you use in a CSS file to specify which elements are concerned by a CSS rule:
+
+1) foo means elements with name foo
+2) [foo] means elements with an attribute named foo
+3) .foo means elements with a CSS class named foo
+4) foo[bar] means elements named foo with an attribute named bar, etc.
+
+
+
+
+Dependency Injection:
+---------------------
+Dependency injection is a method by which, a new instance of a service is injected into the component, which requires it.
+The Angular does this using the injector. When a component is created, Angular looks at the Component Metadata for the Services, 
+on which the Component is required. The injector then creates the instance of the Service and injects it into the component using its constructor.
+
+@Injectable()
+export class MyLogger {
+    AddTolog(msg: any)
+    {
+        console.log(msg);
+    }
+}
+
+
+
