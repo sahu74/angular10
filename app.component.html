@@ -50,6 +50,14 @@
 <input type ="radio" name="RADIO1" (click)="changeMe(true)"> True
 <input type ="radio" name="RADIO2" (click)="changeMe(false)"> False
 
-<div *ngIf="isValid" >
+<div *ngIf="isValid; else elseblk" >
 This Is valid ngIf ditectives  which is structural Directives
 </div>
+
+<ng-template #elseblk>
+<div>
+  This is else block  
+</div>
+
+
+</ng-template>
